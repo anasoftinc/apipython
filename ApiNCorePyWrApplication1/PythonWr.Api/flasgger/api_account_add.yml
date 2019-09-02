@@ -1,0 +1,43 @@
+Add new account
+This example adds new account
+---
+parameters:
+  - name: account
+    in: path
+    type: object
+    required: true
+    default: all
+definitions:
+  Account:
+    type: object
+    properties:
+      name:
+        type: string
+        items:
+      description:
+        type: string
+        items:
+          $ref: '#/definitions/Account'
+      isTrial:
+        type: boolean
+        items:
+          $ref: '#/definitions/Account'
+      isActive:
+        type: boolean
+        items:
+          $ref: '#/definitions/Account'
+      setActive:
+        type: datetime
+        items:
+          $ref: '#/definitions/Account'
+responses:
+  200:
+    description: Created new object
+    schema:
+      $ref: '#/definitions/Account'
+    examples:
+      name: [string]
+      description: [string]
+      isTrial: [boolean]
+      isActive: [boolean]
+      setActive: [datetime]

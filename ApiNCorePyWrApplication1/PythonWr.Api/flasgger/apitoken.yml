@@ -1,0 +1,28 @@
+Get a token for submitted credentials
+Submitted credentials must be valid in Users
+---
+parameters:
+  - name: Login
+    in: path
+    type: string
+    required: true
+    default: all
+definitions:
+  Login:
+    type: object
+    properties:
+      Username:
+        type: string
+        items:
+          $ref: '#/definitions/Login'
+      Password:
+        type: string
+        items:
+          $ref: '#/definitions/Login'
+  Token:
+    type: string
+responses:
+  200:
+    description: Valid token
+    schema:
+      $ref: '#/definitions/Login'
